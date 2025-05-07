@@ -1,0 +1,42 @@
+[
+    {
+        "title": "Miso-Honey Chicken and Asparagus",
+        "author": "Yossy Arefi",
+        "prepTime": 20,
+        "rating": 5.0,
+        "ingredients": ["white miso", "honey", "soy sauce", "rice vinegar", "ginger", "garlic", "hot sauce", "corn oil", "chicken thigh", "asparagus", "salt", "black pepper", "scallion", "rice"],
+        "imageUrl": "https://static01.nyt.com/images/2023/04/11/multimedia/ya-miso-honey-chicken-and-asparagus-mwfj/ya-miso-honey-chicken-and-asparagus-mwfj-master768-v2.jpg?quality=75&auto=webp"
+    },
+    {  
+        "title": "Lemon-Garlic Pasta with Broccoli",
+        "author": "Jordan Kim",
+        "prepTime": 25,
+        "rating": 4.6,
+        "ingredients": ["spaghetti", "garlic", "lemon zest", "lemon juice", "olive oil", "parmesan", "broccoli", "red pepper flakes", "salt", "black pepper"],
+        "imageUrl": "https://dishingouthealth.com/wp-content/uploads/2021/06/LemonButterBroccoliPasta_Styled3.jpg"
+    },
+    {
+        "title": "Crispy Tofu and Veggie Stir-Fry",
+        "author": "Maya Patel",
+        "prepTime": 30,
+        "rating": 4.8,
+        "ingredients": ["tofu", "soy sauce", "sesame oil", "cornstarch", "red bell pepper", "snap peas", "carrot", "garlic", "ginger", "scallion", "rice vinegar"],
+        "imageUrl": "https://figandoliveplatter.com/wp-content/uploads/2021/08/IMG_0832-2-e1629601809539.jpg"
+    },
+    {
+        "title": "Spiced Lentil and Sweet Potato Soup",
+        "author": "Dalia Hassan",
+        "prepTime": 35,
+        "rating": 4.9,
+        "ingredients": ["red lentils", "sweet potato", "onion", "garlic", "cumin", "coriander", "turmeric", "vegetable broth", "olive oil", "lemon juice", "parsley"],
+        "imageUrl": "https://rainbowplantlife.com/wp-content/uploads/2020/03/sweetpotatolentilsoupwithbread281of129-scaled.jpg"
+    },
+    {
+        "title": "Bulgur Salad with Chickpeas and Herbs",
+        "author": "Samira Khan",
+        "prepTime": 20,
+        "rating": 4.7,
+        "ingredients": ["bulgur", "chickpeas", "cucumber", "tomato", "red onion", "parsley", "mint", "lemon juice", "olive oil", "salt", "black pepper"],
+        "imageUrl": "https://www.onceuponachef.com/images/2013/02/Bulgur-Salad-scaled.jpg"
+    }
+]
