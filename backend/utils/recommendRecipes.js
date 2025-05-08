@@ -1,7 +1,17 @@
 const recipes = require('../data/recipes.json');
 
 function recommendRecipes(pantry) {
-    return recipes.map((recipe) => {
+    // validate pantry
+    if (!Array.isArray(pantry)) {
+        throw new TypeError("Expected pantry to be an array")
+    }
+
+    return recipes.map((recipe, index) => {
+        // validate ingredients
+        if (!Array.isArray(recipe.ingredients)) {
+            throw new TypeError(`Recipe at index ${index} is missing a valid 'ingredients' array`);
+        }
+
         // find missing ingredients from pantry for recipe
         const missing = recipe.ingredients.filter((ingredient) => 
             !pantry.includes(ingredient.toLowerCase())
