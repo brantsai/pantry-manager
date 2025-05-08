@@ -4,7 +4,6 @@ const app = express();
 const PORT = 5000;
 
 const recommendRecipes = require('./utils/recommendRecipes')
-const pantry = require('./data/pantry.json')  // TEMPORARY PANTRY
 
 app.use(cors());
 app.use(express.json());
