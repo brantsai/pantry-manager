@@ -1,7 +1,16 @@
+import Link from "next/link";
+
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      Home
-    </div>
+    <main className="p-4">
+      <h1>Welcome to Pantry Manager!</h1>
+      <p>Track your pantry ingredients and get recipe suggestions based on what you have.</p>
+      <Link href="/pantry">
+        Add to your Pantry
+      </Link>
+      <Link href="/recommend">
+        Check Recommended Recipes
+      </Link>
+    </main>
   );
 }
