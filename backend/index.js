@@ -96,6 +96,42 @@ app.get('/pantry', async (req, res) => {
     }
 });
 
+
+/**
+ * DELETE /pantry: Delete a pantry ingredient
+ * Takes in a pantry ingredient ID and deletes the
+ * corresponding ingredient from pantry DB.
+ */
+app.delete('/pantry/:id', async (req, res) => {
+    // validate id
+    const id = parseInt(req.params.id, 10);
+    if (isNaN(id)) {
+        return res.status(400).json({ error: "Invalid ID" });
+    }
+
+
+    try {
+        const text = `
+            DELETE FROM pantry.ingredients
+            WHERE id = $1;
+        `;
+        const values = [id];
+
+        const result = await db.query(text, values);
+
+        if (result.rowCount === 0) {
+            return res.status(404).json({ error: "Ingredient not found" });
+        }
+
+        res.status(204).send();
+    } catch (err) {
+        console.error('Error deleting pantry ingredient', err);
+        res.status(500).json({error: "Internal server error" });
+    }
+});
+
+
+
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
 });
