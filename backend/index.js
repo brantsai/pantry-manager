@@ -23,6 +23,7 @@ app.use(express.json());
 app.post('/recommend', (req, res) => {
     const pantryIngredients = req.body.pantry;
 
+    // validate pantry array
     if (!Array.isArray(pantryIngredients)) {
         return res.status(400).json({ error: "Missing or invalid pantry array" })
     }
@@ -46,11 +47,12 @@ app.post('/recommend', (req, res) => {
 app.post('/pantry', async (req, res) => {
     const pantryIngredient = req.body
 
+    // validate pantry ingredient
     if (!pantryIngredient) {
         return res.status(400).json({ error: "Missing pantry ingredient 'name' in request body" });
     }
 
-    const name = pantryIngredient.name.toLowerCase().trim();
+    const name = pantryIngredient.name.toLowerCase().trim();  // trim and lowercase ingredient name
     
     try {
         const text = `
