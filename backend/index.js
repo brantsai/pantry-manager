@@ -36,7 +36,7 @@ app.post('/recommend', (req, res) => {
         console.error('Error in /recommend', err);
         return res.status(500).json({ error: "Internal server error" });
     }
-})
+});
 
 
 /**
@@ -74,7 +74,27 @@ app.post('/pantry', async (req, res) => {
 
         return res.status(500).json({ error: "Internal server error" });
     }
-})
+});
+
+
+/**
+ * GET /pantry: Get all pantry ingredients
+ * Grabs all pantry ingredients from pantry DB and 
+ * returns it in an array.
+ */
+app.get('/pantry', async (req, res) => {
+    try {
+        const text = `
+            SELECT id, name FROM pantry.ingredients ORDER BY id ASC;
+        `;
+
+        const result = await db.query(text);
+        res.status(200).json(result.rows);
+    } catch (err) {
+        console.error('Error getting pantry ingredients', err);
+        return res.status(500).json({ error: "Internal server error" });
+    }
+});
 
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
