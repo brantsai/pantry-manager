@@ -42,27 +42,48 @@ export default function PantryPage() {
         }
     }
 
+    const handleDelete = async (id) => {
+        const confirm = window.confirm('Delete item?');
+        if (!confirm) return;
+
+        try {
+            const response = await axios.delete(`/api/pantry/${id}`);
+
+            // update pantry items list
+            setPantryItems((prev) => prev.filter((item) => item.id !== id));
+        } catch (err) {
+            console.error('Failed to delete pantry item:', err);
+        }
+    }
+
     return (
         <div className="p-4">
             <h1>My Pantry</h1>
+
             <form onSubmit={handleAdd}>
                 <input 
                     value={newItem}
                     onChange={(e) => setNewItem(e.target.value)}
                     placeholder="Add an ingredient"
+                    required
                 />
                 <button type="submit">Add</button>
             </form>
+
             <ul>
                 {pantryItems.map((item) => (
                     <li key={item.id}>
                         {item.name}
-                        <button className="text-red-500">
+                        <button 
+                            className="text-red-500"
+                            onClick={() => handleDelete(item.id)}
+                        >
                             Delete
                         </button>
                     </li>
                 ))}
             </ul>
+
         </div>
     );
 }
