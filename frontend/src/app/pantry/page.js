@@ -2,10 +2,11 @@
 
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { usePantry } from "@/context/pantryContext";
 
 
 export default function PantryPage() {
-    const [pantryItems, setPantryItems] = useState([]);
+    const { pantryItems, setPantryItems } = usePantry();
     const [newItem, setNewItem] = useState('')
 
     useEffect(() => {

@@ -1,5 +1,6 @@
 import "./globals.css";
 import Link from 'next/link';
+import { PantryProvider } from "@/context/pantryContext";
 
 export default function RootLayout({ children }) {
   return (
@@ -10,7 +11,9 @@ export default function RootLayout({ children }) {
           <Link href="/pantry">Pantry</Link>
           <Link href="/recommend">Recommendations</Link>
         </nav>
-        <main>{children}</main>
+        <PantryProvider>
+          {children}
+        </PantryProvider>
       </body>
     </html>
   );
