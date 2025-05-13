@@ -1,6 +1,6 @@
 export default function RecipeCard({ recipe }) {
     return (
-        <div className="border p-4 rounded shadow mb-4 max-w-md">
+        <div className="border border-gray-300 p-4 rounded shadow mb-4 max-w-md">
             <img src={recipe.imageUrl} alt={recipe.title} className="w-full h-48 object-cover rounded mb-2" />
             <h2 className="text-xl font-semibold">{recipe.title}</h2>
             <p className="text-sm text-gray-600">By {recipe.author}</p>
