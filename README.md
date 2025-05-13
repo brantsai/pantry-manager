@@ -20,11 +20,9 @@ Whether you're trying to reduce food waste, save time, or get creative with what
 
 Make sure you have the following installed:
 
-Node.js
-
-npm or yarn
-
-Git
+-Node.js
+-npm or yarn
+-Git
 
 ### Installation
 
