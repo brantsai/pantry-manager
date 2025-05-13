@@ -34,12 +34,11 @@ Git
    cd pantry-manager
    ```
 2. Install dependencies for frontend and backend
-   Frontend (from root folder):
    ```
    cd frontend
    npm install
    ```
-   Backend (from root folder):
+
    ```
    cd backend
    npm install
