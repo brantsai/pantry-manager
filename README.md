@@ -16,7 +16,7 @@ Whether you're trying to reduce food waste, save time, or get creative with what
 
 ## Getting Started 
 
-### Prerequisites
+### Prerequisites:
 
 Make sure you have the following installed:
 
@@ -24,7 +24,7 @@ Make sure you have the following installed:
 - npm or yarn
 - Git
 
-### Installation
+### Installation:
 
 1. Clone the project
    ```
@@ -42,7 +42,7 @@ Make sure you have the following installed:
    npm install
    ```
 
-### Running the Application
+### Running the Application:
 
 1. Start the backend server (Express.js)
    ```
