@@ -12,9 +12,12 @@ function recommendRecipes(pantry) {
             throw new TypeError(`Recipe at index ${index} is missing a valid 'ingredients' array`);
         }
 
+        // grab pantry ingredient names
+        const pantryItems = pantry.map((item) => item.name.toLowerCase());
+
         // find missing ingredients from pantry for recipe
         const missing = recipe.ingredients.filter((ingredient) => 
-            !pantry.includes(ingredient.toLowerCase())
+            !pantryItems.includes(ingredient.toLowerCase())
         );
 
         // calculate percentage of matching ingredients for recipe

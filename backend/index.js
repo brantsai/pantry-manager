@@ -3,6 +3,8 @@ const cors = require('cors');
 const db = require('./db/pool')
 const app = express();
 const PORT = 5000;
+const fs = require('fs');
+const path = require('path');
 
 const recommendRecipes = require('./utils/recommendRecipes')
 
@@ -21,7 +23,7 @@ app.use(express.json());
  * ingredients using recommendRecipe function.
  */
 app.post('/recommend', (req, res) => {
-    const pantryIngredients = req.body.pantry;
+    const pantryIngredients = req.body;
 
     // validate pantry array
     if (!Array.isArray(pantryIngredients)) {
@@ -128,6 +130,23 @@ app.delete('/pantry/:id', async (req, res) => {
         console.error('Error deleting pantry ingredient', err);
         res.status(500).json({error: "Internal server error" });
     }
+});
+
+
+/**
+ * GET /recipes: Get all recipes
+ * Parses and returns all recipes json data.
+ */
+app.get('/recipes', (req, res) => {
+    const filePath = path.join(__dirname, './data/recipes.json');
+    fs.readFile(filePath, 'utf8', (err, data) => {
+        if (err) {
+            console.error('Error reading recipes.json file:', err);
+            return res.status(500).json({ error: 'Internal server error' });
+        }
+
+        res.json(JSON.parse(data));
+    });
 });
 
 

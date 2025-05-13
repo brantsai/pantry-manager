@@ -10,6 +10,7 @@ export default function PantryPage() {
     const [newItem, setNewItem] = useState('')
 
     useEffect(() => {
+        // create inner function to use async
         const fetchPantryItems = async () => {
             try {
                 const response = await axios.get('/api/pantry');
@@ -17,7 +18,7 @@ export default function PantryPage() {
             } catch (err) {
                 console.error('Failed to fetch pantry items:', err);
             }
-        };
+        }
 
         fetchPantryItems();
     }, []);
