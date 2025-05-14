@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const db = require('./db/pool')
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 8080;
 const fs = require('fs');
 const path = require('path');
 
