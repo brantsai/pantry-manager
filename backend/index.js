@@ -22,7 +22,7 @@ app.use(express.json());
  * array of recipes with match percentage and missing 
  * ingredients using recommendRecipe function.
  */
-app.post('/recommend', (req, res) => {
+app.post('/recommend', async (req, res) => {
     const pantryIngredients = req.body;
 
     // validate pantry array
@@ -31,7 +31,7 @@ app.post('/recommend', (req, res) => {
     }
 
     try {
-        const recommendedRecipes = recommendRecipes(pantryIngredients);
+        const recommendedRecipes = await recommendRecipes(pantryIngredients);
         res.status(200).json(recommendedRecipes);
     }
     catch (err) {
