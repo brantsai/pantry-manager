@@ -4,7 +4,7 @@ const nextConfig = {
         return [
             {
                 source: '/api/:path*',
-                destination: 'http://localhost:8080/:path*',
+                destination: 'https://express-cloud-run-67007310453.us-central1.run.app/:path*',
             },
         ];
     },

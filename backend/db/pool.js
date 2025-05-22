@@ -6,7 +6,7 @@ const pool = new Pool({
     password: process.env.DB_PASSWORD,
     port: process.env.DB_PORT || 5432,
     database: process.env.DB_DATABASE,
-    host: process.env.DB_HOST
+    host: `/cloudsql/${process.env.INSTANCE_CONNECTION_NAME}`
 });
 
 module.exports = {
