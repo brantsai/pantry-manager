@@ -1,6 +1,12 @@
-CREATE SCHEMA pantry;
+CREATE SCHEMA IF NOT EXISTS pantry;
 
-CREATE TABLE pantry.ingredients (
+CREATE TABLE IF NOT EXISTS pantry.ingredients (
     id SERIAL PRIMARY KEY,
     name TEXT NOT NULL UNIQUE
+);
+
+CREATE TABLE IF NOT EXISTS pantry.users (
+    id SERIAL PRIMARY KEY,
+    username TEXT NOT NULL UNIQUE,
+    password_hash TEXT NOT NULL
 );
