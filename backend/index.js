@@ -1,5 +1,7 @@
 const express = require('express');
 const cors = require('cors');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 const db = require('./db/pool')
 const app = express();
 const PORT = process.env.PORT || 8080;
@@ -11,9 +13,31 @@ const recommendRecipes = require('./utils/recommendRecipes')
 app.use(cors());
 app.use(express.json());
 
+const JWT_SECRET = process.env.JWT_SECRET;
+
+
 /**
  * ROUTES
  */
+
+
+/**
+ * POST /register: Register user
+ * Creates a new user with username and password fields,
+ * encrypts password using bcrypt before storing user data
+ * into database.
+ */
+app.post('/register', async (req, res) => {
+    const { username, password } = req.body;
+
+    try {
+        const hashedPassword = await bcrypt.hash(password, 10);
+        console.log(hashedPassword)
+    } catch (err) {
+        console.error('Error in /register', err);
+        return res.status(500).json({ error: "Internal server error: User registration failed" });
+    }
+})
 
 
 /**
@@ -33,8 +57,7 @@ app.post('/recommend', async (req, res) => {
     try {
         const recommendedRecipes = await recommendRecipes(pantryIngredients);
         res.status(200).json(recommendedRecipes);
-    }
-    catch (err) {
+    } catch (err) {
         console.error('Error in /recommend', err);
         return res.status(500).json({ error: "Internal server error" });
     }
